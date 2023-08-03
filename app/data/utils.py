@@ -10,8 +10,3 @@ connection_parameters = {
    "database": "STREAMLIT",  # optional
    "schema": "MEMBER_APPLICATION",  # optional
   }  
-session = Session.builder.configs(connection_parameters).create()
-
-def session_builder():
-    st.write("Session Created")
-    return session
