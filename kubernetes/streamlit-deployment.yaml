@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: streamlit-deployment
+  name: streamlit-app-deployment
 spec:
-  replicas: 3 # You can adjust the number of replicas as needed
+  replicas: 3 # Number of desired replicas
   selector:
     matchLabels:
-      app: streamlit
+      app: streamlit-app
   template:
     metadata:
       labels:
-        app: streamlit
+        app: streamlit-app
     spec:
       containers:
-        - name: streamlit
-          image: rheuzaki/streamlit:latest
+        - name: streamlit-app
+          image: streamlit-app:latest # Use the image built earlier
           ports:
             - containerPort: 8501

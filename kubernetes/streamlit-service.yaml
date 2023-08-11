@@ -1,19 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: streamlit-deployment
+  name: streamlit-service
 spec:
-  replicas: 3 # You can adjust the number of replicas as needed
+  type: NodePort
   selector:
-    matchLabels:
-      app: streamlit
-  template:
-    metadata:
-      labels:
-        app: streamlit
-    spec:
-      containers:
-        - name: streamlit
-          image: rheuzaki/streamlit:latest
-          ports:
-            - containerPort: 8501
+    app: streamlit-app
+  ports:
+    - port: 8501
+      targetPort: 8501
